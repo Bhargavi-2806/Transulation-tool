@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Language Translation Tool</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 400px;
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+    textarea, select, button {
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    #output {
+      background: #e9f5e9;
+      padding: 10px;
+      border-radius: 5px;
+      min-height: 50px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>🌍 Language Translator</h2>
+    <textarea id="inputText" placeholder="Enter text here..."></textarea>
+    
+    <label for="sourceLang">Source Language:</label>
+    <select id="sourceLang">
+      <option value="en">English</option>
+      <option value="te">Telugu</option>
+      <option value="hi">Hindi</option>
+      <option value="fr">French</option>
+    </select>
+    
+    <label for="targetLang">Target Language:</label>
+    <select id="targetLang">
+      <option value="te">Telugu</option>
+      <option value="en">English</option>
+      <option value="hi">Hindi</option>
+      <option value="fr">French</option>
+    </select>
+    <button onclick="translateText()">Translate</button>
+    
+    <h3>Translated Text:</h3>
+    <div id="output"></div>
+  </div>
+
+  <script>
+    async function translateText() {
+      const inputText = document.getElementById("inputText").value;
+      const sourceLang = document.getElementById("sourceLang").value;
+      const targetLang = document.getElementById("targetLang").value;
+
+      // Placeholder translation (for now)
+      // Later, we’ll connect this to Google Translate API or Microsoft Translator
+      document.getElementById("output").innerText = 
+        `(${sourceLang} → ${targetLang}) Translation of "${inputText}" will appear here.`;
+    }
+  </script>
+</body>
+</html>
