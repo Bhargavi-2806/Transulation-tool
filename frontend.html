@@ -75,6 +75,20 @@
       document.getElementById("output").innerText = 
         `(${sourceLang} → ${targetLang}) Translation of "${inputText}" will appear here.`;
     }
+  async function translateText() {
+    const inputText = document.getElementById("inputText").value;
+    const sourceLang = document.getElementById("sourceLang").value;
+    const targetLang = document.getElementById("targetLang").value;
+
+    const response = await fetch("/translate", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ text: inputText, sourceLang, targetLang })
+    });
+
+    const data = await response.json();
+    document.getElementById("output").innerText = data.translatedText || data.error;
+  }
   </script>
 </body>
 </html>
